@@ -4,6 +4,7 @@ var roleBuilder = require('role.builder');
 var roleAttack = require('role.attacker');
 var roleUpgraderTeamTwo = require('role.upgraderteamtwo');
 var rolePatrol = require('role.patrol');
+
 module.exports.loop = function(){
     
     //Auto Spawn Script
@@ -107,6 +108,7 @@ module.exports.loop = function(){
             roleUpgraderTeamTwo.run(creep);
             
         }
+        
         if(creep.memory.role == 'patrol'){
             
             rolePatrol.run(creep);
