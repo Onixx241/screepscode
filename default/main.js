@@ -40,6 +40,7 @@ module.exports.loop = function(){
     var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
     
     var patrols = _.filter(Game.creeps, (creep) => creep.memory.role == 'patrol')
+    
     console.log("Builders: " + builders.length);
     
     
@@ -51,17 +52,26 @@ module.exports.loop = function(){
     if(harvesters.length<= 2){
         
         Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], harName, {memory:{role: 'harvester'}});
+        
     }
     if(builders.length <= 5){
+        
         Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], builName, {memory: {role: 'builder'}});
+        
     }
     
     if(patrols.length < 1){
+        
         Game.spawns['Spawn1'].spawnCreep([MOVE,MOVE,MOVE], patName, {memory: {role: 'patrol'}});
+        
     }
+    
     //if(upgraders.length <3){
+    
      //   Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], builName, {memory: {role: 'upgrader'}});
+     
    // }
+   
     //End
     
     for(var name in Game.creeps){
@@ -69,26 +79,38 @@ module.exports.loop = function(){
         var creep = Game.creeps[name];
         
         if(creep.memory.role == 'harvester'){
+            
             roleHarvester.run(creep);
+            
         }
         
         if(creep.memory.role == 'upgrader'){
+            
             roleUpgrader.run(creep);
+            
         }
         
         if(creep.memory.role == 'builder'){
+            
             roleBuilder.run(creep);
+            
         }
         
         if(creep.memory.role == 'attacker'){
+            
             roleAttack.run(creep);
+            
         }
         
         if(creep.memory.role =='upgraderteamtwo'){
+            
             roleUpgraderTeamTwo.run(creep);
+            
         }
         if(creep.memory.role == 'patrol'){
+            
             rolePatrol.run(creep);
+            
         }
         
         
